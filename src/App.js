@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useMemo } from "react";
+import copy from "copy-to-clipboard";
+import "./App.css";
+
+function replaceAll(str, mapObj) {
+  const re = new RegExp(Object.keys(mapObj).join("|"), "g");
+
+  return str.replace(re, function (matched) {
+    return mapObj[matched];
+  });
+}
+
+function translate(text) {
+  const table = {
+    O: "ø",
+    A: "4",
+    S: "5",
+    I: "!",
+    E: "3",
+  };
+  const transtable = {};
+  Object.entries(table).forEach(([key, value]) => {
+    transtable[key] = value;
+    transtable[key.toLowerCase()] = value;
+  });
+  return replaceAll(text, transtable);
+}
 
 function App() {
+  const [text, setText] = useState("");
+  const translatedText = useMemo(() => translate(text), [text]);
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+
+  const copyToClipboard = () => {
+    copy(translatedText);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <textarea onChange={handleChange} value={text} />
+        <textarea value={translatedText} disabled />
+      </div>
+      <button onClick={copyToClipboard}>Copy to clipboard</button>
     </div>
   );
 }
