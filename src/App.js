@@ -18,12 +18,7 @@ function translate(text) {
     I: "!",
     E: "3",
   };
-  const transtable = {};
-  Object.entries(table).forEach(([key, value]) => {
-    transtable[key] = value;
-    transtable[key.toLowerCase()] = value;
-  });
-  return replaceAll(text, transtable);
+  return replaceAll(text.toUpperCase(), table);
 }
 
 function App() {
