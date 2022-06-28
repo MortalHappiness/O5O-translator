@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/O5O-translator/static/css/main.6e4ba92a.css",
-    "main.js": "/O5O-translator/static/js/main.75aedc3d.js",
+    "main.js": "/O5O-translator/static/js/main.4f398c58.js",
     "static/js/787.b4424c3b.chunk.js": "/O5O-translator/static/js/787.b4424c3b.chunk.js",
     "index.html": "/O5O-translator/index.html",
     "main.6e4ba92a.css.map": "/O5O-translator/static/css/main.6e4ba92a.css.map",
-    "main.75aedc3d.js.map": "/O5O-translator/static/js/main.75aedc3d.js.map",
+    "main.4f398c58.js.map": "/O5O-translator/static/js/main.4f398c58.js.map",
     "787.b4424c3b.chunk.js.map": "/O5O-translator/static/js/787.b4424c3b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6e4ba92a.css",
-    "static/js/main.75aedc3d.js"
+    "static/js/main.4f398c58.js"
   ]
 }
